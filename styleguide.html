@@ -1,0 +1,466 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ProUIKit 2.0 — Live Styleguide (Full Source)</title>
+  <link rel="stylesheet" href="ProUIKit.css">
+  <style>
+    /* Demo-only helpers */
+    :root{--demo-max:1200px}
+    body{font-family:var(--pui-font-sans);margin:0;background:var(--pui-bg);color:var(--pui-text);-webkit-font-smoothing:antialiased;padding:20px}
+    .app{max-width:var(--demo-max);margin:0 auto}
+    header.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:1.25rem}
+    .top-actions{display:flex;gap:8px}
+    .layout{display:flex;gap:16px}
+    aside.sidebar{width:260px;padding:12px;border-right:1px solid var(--pui-border);min-height:80vh}
+    main.content{flex:1;padding:12px}
+    .section{background:color-mix(in srgb,var(--pui-surface) 98%, transparent);padding:12px;border-radius:8px;margin-bottom:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .muted{color:var(--pui-muted)}
+    .demo-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .code{background:var(--pui-muted-surface);padding:8px;border-radius:6px;font-family:var(--pui-font-mono);font-size:.95rem}
+    footer{padding:12px;text-align:center;color:var(--pui-muted);margin-top:20px}
+    .nav-link{display:block;padding:8px;border-radius:6px;color:var(--pui-text);text-decoration:none}
+    .nav-link.active{background:var(--pui-primary);color:#fff}
+    .ui-preview{border:1px dashed var(--pui-border);padding:10px;border-radius:8px}
+    /* responsive demo helpers */
+    @media (max-width:900px){aside.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="site-header">
+      <div class="brand">
+        <div class="avatar" style="background:var(--pui-primary);color:#fff;padding:8px;border-radius:8px;font-weight:800">PU</div>
+        <div>
+          <h1>ProUIKit 2.0</h1>
+          <div class="small muted">Modern UI — Bootstrap + Tailwind style</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="btn btn-outline" id="open-docs">Docs</button>
+        <button class="btn btn-primary" id="toggle-theme">Toggle Theme</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <nav class="pui-reset-list">
+          <a class="nav-link active" href="#overview">Overview</a>
+          <a class="nav-link" href="#utilities">Utilities</a>
+          <a class="nav-link" href="#components">Components</a>
+          <a class="nav-link" href="#forms">Forms</a>
+          <a class="nav-link" href="#dashboard">Dashboard</a>
+          <a class="nav-link" href="#patterns">Patterns</a>
+          <a class="nav-link" href="#layout">Layout</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <!-- OVERVIEW -->
+        <section id="overview" class="section">
+          <h2 class="h2">Overview</h2>
+          <p class="muted">ProUIKit 2.0 combines component-driven patterns with a utility-first system, responsive variants, design tokens, and a modern component library. This demo showcases components and utilities that resemble Bootstrap's completeness and Tailwind's utility approach.</p>
+          <div class="demo-row mt-3">
+            <div class="card">
+              <h4 class="card-title">Tokens</h4>
+              <p class="small">Colors, spacing, radii, shadows, motion and breakpoints are exposed as CSS variables for theming and runtime overrides.</p>
+            </div>
+            <div class="card">
+              <h4 class="card-title">Utilities</h4>
+              <p class="small">Use utility classes for spacing, sizing, text, layout, and interactivity — includes responsive prefixes and state variants.</p>
+            </div>
+            <div class="card">
+              <h4 class="card-title">Components</h4>
+              <p class="small">Buttons, forms, navs, modals, drawers, tooltips, charts placeholders, datagrids and dashboard widgets.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- UTILITIES -->
+        <section id="utilities" class="section">
+          <h2 class="h2">Utilities</h2>
+
+          <div class="grid-3 mt-3">
+            <div>
+              <h4 class="h3">Spacing</h4>
+              <div class="ui-preview mt-2">
+                <div class="p-6" style="border:1px dashed var(--pui-border)">.p-6
+                  <div class="mt-4 p-3" style="border:1px dashed var(--pui-border)">.mt-4 .p-3</div>
+                </div>
+                <div class="mt-3 code">Examples: .m-4 .mt-3 .p-2 .px-4 .py-2</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Sizing</h4>
+              <div class="ui-preview mt-2">
+                <div class="w-100 p-3" style="background:var(--pui-muted-surface)">.w-100</div>
+                <div class="w-50 mt-2 p-3" style="background:var(--pui-muted-surface)">.w-50</div>
+                <div class="w-25 mt-2 p-3" style="background:var(--pui-muted-surface)">.w-25</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Text & Color</h4>
+              <div class="ui-preview mt-2">
+                <div class="text-xl">.text-xl</div>
+                <div class="text-primary">.text-primary</div>
+                <div class="text-muted">.text-muted</div>
+                <div class="mt-2 code">Utilities: .text-*, .bg-*, .border-*</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Flex & Grid</h4>
+              <div class="ui-preview mt-2">
+                <div class="d-flex gap-3">
+                  <div class="card flex-1">Flex 1</div>
+                  <div class="card" style="width:180px">Fixed</div>
+                </div>
+                <div class="mt-3 grid-cols-3 gap-3 d-grid">
+                  <div class="card">A</div>
+                  <div class="card">B</div>
+                  <div class="card">C</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Transforms & Motion</h4>
+              <div class="ui-preview mt-2">
+                <div class="card motion-hover">.motion-hover</div>
+                <div class="card anim-pulse mt-2">.anim-pulse</div>
+                <div class="card anim-wobble mt-2">.anim-wobble</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Responsive & State Variants</h4>
+              <div class="ui-preview mt-2">
+                <div class="code">Prefix utilities: sm-, md-, lg-, xl-</div>
+                <div class="code mt-2">State variants: hover:, focus:, active:, dark:</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- COMPONENTS -->
+        <section id="components" class="section">
+          <h2 class="h2">Components</h2>
+          <div class="grid-3 mt-3">
+
+            <div>
+              <h4 class="h3">Buttons</h4>
+              <div class="ui-preview mt-2">
+                <div class="demo-row">
+                  <button class="btn btn-primary">Primary</button>
+                  <button class="btn btn-secondary">Secondary</button>
+                  <button class="btn btn-outline">Outline</button>
+                  <button class="btn btn-ghost">Ghost</button>
+                </div>
+                <div class="demo-row mt-2">
+                  <button class="btn btn-sm">Small</button>
+                  <button class="btn btn-md">Medium</button>
+                  <button class="btn btn-lg">Large</button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Badges & Chips</h4>
+              <div class="ui-preview mt-2">
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge">Default</span>
+                <div class="chips mt-2">
+                  <div class="chip">Design <span class="close">✕</span></div>
+                  <div class="chip">System</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Cards (Image & Media)</h4>
+              <div class="ui-preview mt-2">
+                <div class="card">
+                  <img src="https://picsum.photos/seed/card1/600/200" alt="" style="border-radius:6px;margin-bottom:8px"/>
+                  <h4 class="card-title">Image Card</h4>
+                  <p class="card-sub">Subtitle or short description.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Avatars & Groups</h4>
+              <div class="ui-preview mt-2">
+                <div class="avatar">AJ</div>
+                <div class="avatar avatar-lg mt-2">PU</div>
+                <div class="avatar-stack mt-2">
+                  <div class="avatar">A</div>
+                  <div class="avatar">B</div>
+                  <div class="avatar">C</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Alerts & Toasts</h4>
+              <div class="ui-preview mt-2">
+                <div class="alert alert-info"><strong>Info:</strong> This is an informational alert.</div>
+                <div class="mt-2 demo-row">
+                  <button class="btn btn-primary" id="toast-info">Show Toast</button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Tooltips & Popovers</h4>
+              <div class="ui-preview mt-2">
+                <div class="tooltip">Hover me<span class="tooltip-content">Tooltip content</span></div>
+                <div class="mt-2 code">Tooltips are CSS-first; add JS for richer interactions and positioning.</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Dropdowns & Menus</h4>
+              <div class="ui-preview mt-2">
+                <div class="pui-dropdown" id="demo-dropdown">
+                  <button class="btn btn-outline" id="dropdown-btn">Open</button>
+                  <div class="menu" role="menu">
+                    <a href="#">Action 1</a>
+                    <a href="#">Action 2</a>
+                    <a href="#">Action 3</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Tabs & Accordions</h4>
+              <div class="ui-preview mt-2">
+                <div class="pui-tabs" id="tabs-basic">
+                  <div class="tab-list">
+                    <button class="tab active" data-target="#t1">Tab A</button>
+                    <button class="tab" data-target="#t2">Tab B</button>
+                  </div>
+                  <div class="tab-panel is-active" id="t1">A content</div>
+                  <div class="tab-panel" id="t2">B content</div>
+                </div>
+                <div class="pui-accordion mt-2" id="acc-basic">
+                  <div class="item is-open"><div class="summary">Q1</div><div class="content">A1</div></div>
+                  <div class="item"><div class="summary">Q2</div><div class="content">A2</div></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- FORMS -->
+        <section id="forms" class="section">
+          <h2 class="h2">Forms & Controls</h2>
+          <div class="grid-3 mt-3">
+            <div>
+              <h4 class="h3">Floating Labels & Input Groups</h4>
+              <div class="ui-preview mt-2">
+                <div class="field">
+                  <label class="label">Email</label>
+                  <input class="input" placeholder="you@example.com" />
+                </div>
+                <div class="field">
+                  <label class="label">Password</label>
+                  <div class="input-with-icon"><span class="icon">🔒</span><input class="input" placeholder="Password" /></div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Checkbox / Radio / Switch</h4>
+              <div class="ui-preview mt-2">
+                <label class="field"><input type="checkbox" class="checkbox" checked /> Checkbox checked</label>
+                <label class="field"><input type="radio" name="r1" class="radio" checked /> Radio checked</label>
+                <label class="switch mt-2"><input type="checkbox" /><span class="thumb"></span></label> Switch
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">File, Range, and Select</h4>
+              <div class="ui-preview mt-2">
+                <input type="file" class="file" />
+                <input type="range" class="range mt-2" />
+                <select class="input mt-2"><option>One</option><option>Two</option></select>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Validation States</h4>
+              <div class="ui-preview mt-2">
+                <input class="input is-valid" value="Looks good" />
+                <input class="input is-invalid mt-2" value="Has error" />
+                <div class="form-error">Please provide a valid value.</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h3">Form Grid</h4>
+              <div class="ui-preview mt-2">
+                <form class="form-grid">
+                  <div class="col"><input class="input" placeholder="First name" /></div>
+                  <div class="col"><input class="input" placeholder="Last name" /></div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="section">
+          <h2 class="h2">Dashboard Widgets</h2>
+          <div class="grid-3 mt-3">
+            <div class="card">
+              <div class="d-flex justify-between items-center">
+                <div>
+                  <div class="small text-muted">Total Users</div>
+                  <div class="h3">12,430</div>
+                </div>
+                <div class="avatar">U</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="small text-muted">Conversion</div>
+              <div class="h3">12.4% <span class="text-success">▲ 1.2%</span></div>
+              <div class="progress mt-3"><div class="bar" style="width:62%"></div></div>
+            </div>
+
+            <div class="card">
+              <div class="small text-muted">Server Load</div>
+              <div class="h3">67%</div>
+              <div class="progress mt-3"><div class="bar" style="width:67%"></div></div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Activity</h4>
+              <div class="timeline mt-2">
+                <div class="item"><div class="dot"></div><div>Deployed new release</div></div>
+                <div class="item"><div class="dot"></div><div>User signup spike</div></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Recent Files</h4>
+              <div class="file-list mt-2">
+                <div class="file-item"><div class="media-card"><div class="avatar">F</div><div class="meta">report.pdf</div></div></div>
+                <div class="file-item"><div class="media-card"><div class="avatar">I</div><div class="meta">image.png</div></div></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Support</h4>
+              <div class="chat mt-2">
+                <div class="bubble they">Hi! Need help?</div>
+                <div class="bubble me">Yes — show me the dashboard.</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- PATTERNS -->
+        <section id="patterns" class="section">
+          <h2 class="h2">Design Patterns</h2>
+          <div class="grid-3 mt-3">
+            <div class="card">
+              <h4 class="card-title">Hero + CTA</h4>
+              <div class="mt-2">
+                <h3>Simple hero</h3>
+                <p class="muted">Short description, supporting text and a call to action.</p>
+                <div class="mt-3"><button class="btn btn-primary">Primary CTA</button> <button class="btn btn-outline">Secondary</button></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Pricing</h4>
+              <div class="mt-2 price-table">
+                <div class="card pricing">
+                  <div class="price">$9</div>
+                  <div class="period">/mo</div>
+                  <ul class="features"><li>Feature A</li><li>Feature B</li></ul>
+                  <div class="mt-3"><button class="btn btn-primary w-full">Choose</button></div>
+                </div>
+                <div class="card pricing">
+                  <div class="price">$29</div>
+                  <div class="period">/mo</div>
+                  <ul class="features"><li>Feature A</li><li>Feature B</li><li>Feature C</li></ul>
+                  <div class="mt-3"><button class="btn btn-primary w-full">Choose</button></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Testimonials</h4>
+              <div class="mt-2">
+                <blockquote>"ProUIKit made our UI consistent and fast to build."</blockquote>
+                <div class="small">— Product Team</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Blog / Card List</h4>
+              <div class="card-list mt-2">
+                <div class="card">Post A</div>
+                <div class="card">Post B</div>
+                <div class="card">Post C</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- LAYOUT -->
+        <section id="layout" class="section">
+          <h2 class="h2">Layout Utilities & Templates</h2>
+          <div class="grid-3 mt-3">
+            <div class="card">
+              <h4 class="card-title">Containers</h4>
+              <div class="mt-2"><div class="container">.container (responsive center)</div></div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Sidebar Layout</h4>
+              <div class="mt-2 demo-row">
+                <div class="pui-sidebar">Sidebar</div>
+                <div class="pui-main">Main content</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 class="card-title">Grid Templates</h4>
+              <div class="pui-grid cols-3 mt-2">
+                <div class="card">1</div>
+                <div class="card">2</div>
+                <div class="card">3</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer>ProUIKit 2.0 — Generated live styleguide</footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modals, Drawer, Toast area, etc. -->
+  <div class="pui-modal" id="modal-global"><div class="panel"><h4>Modal</h4><p class="muted">Demo global modal</p><div class="mt-3"><button class="btn" id="close-global">Close</button></div></div></div>
+  <div class="pui-toast-area" id="global-toasts"></div>
+  <div class="pui-drawer" id="demo-drawer" style="display:none;position:fixed;right:0;top:0;height:100vh;width:360px;background:var(--pui-surface);box-shadow:var(--pui-shadow-3);padding:16px;z-index:9999">Drawer content <button id="close-drawer" class="btn btn-sm btn-outline">Close</button></div>
+
+  <script src="proUIKit.js"></script>
+</body>
+</html>
